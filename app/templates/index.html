@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>COMUNICACIONES ALJENI</title>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tu propio CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='/css/styles.css') }}"
+    />
+  </head>
+  <body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <!-- Ponemos un id nuevo al div contenedor para usarlo como ancla -->
+      <div id="nav-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 flex items-center">
+              <!-- Tu logo se queda igual -->
+              <img
+                class="h-10 w-auto"
+                src="{{ url_for('static', path='/images/logo.png') }}"
+                alt="Logo de Comunicaciones ALJENI"
+              />
+            </div>
+          </div>
+          <!-- El id de los links de escritorio se queda igual -->
+          <div
+            id="desktop-nav-links"
+            class="hidden md:ml-6 md:flex md:items-center md:space-x-8"
+          >
+            <a
+              href="#celulares"
+              class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium"
+              >Celulares</a
+            >
+            <a
+              href="#recargas"
+              class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium"
+              >Recargas</a
+            >
+            <a
+              href="#planes"
+              class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium"
+              >Planes</a
+            >
+            <a
+              href="#accesorios"
+              class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium"
+              >Accesorios</a
+            >
+            <a
+              href="#ofertas"
+              class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium"
+              >Ofertas</a
+            >
+            <a
+              href="#contacto"
+              class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium"
+              >Contacto</a
+            >
+          </div>
+          <div class="flex items-center">
+            <div class="hidden md:flex items-center space-x-4">
+              <a href="#" class="text-gray-500 hover:text-indigo-600"
+                ><i class="fas fa-search"></i
+              ></a>
+              <a href="#" class="text-gray-500 hover:text-indigo-600"
+                ><i class="fas fa-user"></i
+              ></a>
+              <a href="#" class="text-gray-500 hover:text-indigo-600 relative">
+                <i class="fas fa-shopping-cart"></i>
+                <span
+                  class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                  >3</span
+                >
+              </a>
+            </div>
+            <button
+              id="mobile-menu-button"
+              class="md:hidden ml-4 text-gray-500 hover:text-gray-900 focus:outline-none"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú móvil, se mostrará/ocultará con JS -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#celulares"
+            class="block text-gray-900 hover:text-indigo-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            >Celulares</a
+          >
+          <a
+            href="#recargas"
+            class="block text-gray-900 hover:text-indigo-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            >Recargas</a
+          >
+          <a
+            href="#planes"
+            class="block text-gray-900 hover:text-indigo-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            >Planes</a
+          >
+          <a
+            href="#accesorios"
+            class="block text-gray-900 hover:text-indigo-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            >Accesorios</a
+          >
+          <a
+            href="#ofertas"
+            class="block text-gray-900 hover:text-indigo-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            >Ofertas</a
+          >
+          <a
+            href="#contacto"
+            class="block text-gray-900 hover:text-indigo-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            >Contacto</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white">
+      <div
+        class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center"
+      >
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+          Tu conexión móvil al instante
+        </h1>
+        <p class="mt-6 max-w-2xl mx-auto text-xl">
+          Los mejores celulares, recargas rápidas y planes a tu medida.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#celulares"
+            class="pulse-animation inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-gray-100 transition duration-300"
+          >
+            Ver Catálogo <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a
+            href="#ofertas"
+            class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md shadow-sm text-white bg-transparent hover:bg-white hover:bg-opacity-10 transition duration-300"
+          >
+            Ofertas Especiales <i class="fas fa-tag ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Brands -->
+    <div class="bg-white py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center">
+          <img
+            src="{{ url_for('static', path='/images/Samsung_logo.png') }}"
+            alt="Samsung"
+            class="brand-logo h-12 w-auto mx-auto"
+          />
+          <img
+            src="{{ url_for('static', path='/images/Apple_logo.png') }}"
+            alt="Apple"
+            class="brand-logo h-12 w-auto mx-auto"
+          />
+          <img
+            src="{{ url_for('static', path='/images/Xiaomi_logo.png') }}"
+            alt="Xiaomi"
+            class="brand-logo h-12 w-auto mx-auto"
+          />
+          <img
+            src="{{ url_for('static', path='/images/Huawei_logo.png') }}"
+            alt="Huawei"
+            class="brand-logo h-12 w-auto mx-auto"
+          />
+          <img
+            src="{{ url_for('static', path='/images/Oppo_logo.png') }}"
+            alt="Oppo"
+            class="brand-logo h-12 w-auto mx-auto"
+          />
+          <img
+            src="{{ url_for('static', path='/images/Motorola_logo.png') }}"
+            alt="Motorola"
+            class="brand-logo h-12 w-auto mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Featured Phones -->
+    <div id="celulares" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          Los Últimos Modelos en la tienda
+        </h2>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+          Descubre nuestra amplia selección de smartphones de las mejores
+          marcas. ¡Encuentra el celular perfecto para ti!
+        </p>
+      </div>
+
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex rounded-md shadow-sm" role="group">
+          <button
+            type="button"
+            class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-l-lg hover:bg-indigo-700 focus:z-10 focus:ring-2 focus:ring-indigo-500"
+          >
+            Todos
+          </button>
+          <button
+            type="button"
+            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-indigo-500"
+          >
+            Samsung
+          </button>
+          <button
+            type="button"
+            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-indigo-500"
+          >
+            iPhone
+          </button>
+          <button
+            type="button"
+            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-indigo-500"
+          >
+            Xiaomi
+          </button>
+          <button
+            type="button"
+            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-indigo-500 rounded-r-lg"
+          >
+            Gama Media
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+      >
+        <!-- Phone 1 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative"
+        >
+          <div class="deal-badge">OFERTA</div>
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/galaxy.webp"
+            alt="Galaxy Z Fold 7"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Galaxy Z Fold 7
+              </h3>
+              <span
+                class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                >Nuevo</span
+              >
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(24)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Innovación plegable y potencia.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 7,899</span>
+                <span class="text-sm text-gray-500 line-through ml-2"
+                  >S/ 8,499</span
+                >
+                <span class="text-sm text-green-600 font-medium ml-2"
+                  >7% OFF</span
+                >
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 658.25
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 2 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative"
+        >
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/iphone.webp"
+            alt="iPhone 16 Pro Max"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                iPhone 16 Pro Max
+              </h3>
+              <span
+                class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                >Popular</span
+              >
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(42)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Rendimiento y cámara pro.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 6,500</span>
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 541.66
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 3 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative"
+        >
+          <div class="deal-badge">-15%</div>
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/xiaomi.webp"
+            alt="Xiaomi Mix Fold 5"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Xiaomi Mix Fold 5
+              </h3>
+              <span
+                class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full"
+                >Destacado</span
+              >
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(18)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Diseño elegante y gran pantalla.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 5,949</span>
+                <span class="text-sm text-gray-500 line-through ml-2"
+                  >S/ 6,999</span
+                >
+                <span class="text-sm text-green-600 font-medium ml-2"
+                  >15% OFF</span
+                >
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 495.75
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 4 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300"
+        >
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/operador1.png"
+            alt="Samsung Galaxy S23"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Galaxy S23 Ultra
+              </h3>
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(36)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Cámara de 200MP y S Pen incluido.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 5,299</span>
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 441.58
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 5 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300"
+        >
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/operador2.png"
+            alt="iPhone 14"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                iPhone 14 Plus
+              </h3>
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(29)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Pantalla grande y gran duración.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 4,799</span>
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 399.91
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 6 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative"
+        >
+          <div class="deal-badge">NUEVO</div>
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/operador3.png"
+            alt="Xiaomi 13 Pro"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">Xiaomi 13 Pro</h3>
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(15)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Cámara Leica y carga ultra rápida.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 4,299</span>
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 358.25
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 7 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300"
+        >
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/operador4.png"
+            alt="Oppo Find N2"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Oppo Find N2 Flip
+              </h3>
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(12)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Diseño flip con pantalla externa.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 4,999</span>
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 416.58
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 8 -->
+        <div
+          class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative"
+        >
+          <div class="deal-badge">-10%</div>
+          <img
+            class="w-full h-64 object-contain p-4"
+            src="https://itzjp1802.github.io/ALJENI/images/operador1.png"
+            alt="Motorola Edge 40"
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Motorola Edge 40
+              </h3>
+            </div>
+            <div class="flex items-center mt-1">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-500 text-sm ml-2">(8)</span>
+            </div>
+            <p class="mt-2 text-gray-600">Pantalla pOLED y carga rápida.</p>
+            <div class="mt-4">
+              <div class="flex items-center">
+                <span class="text-2xl font-bold text-indigo-600">S/ 2,699</span>
+                <span class="text-sm text-gray-500 line-through ml-2"
+                  >S/ 2,999</span
+                >
+                <span class="text-sm text-green-600 font-medium ml-2"
+                  >10% OFF</span
+                >
+              </div>
+              <div class="mt-2 text-sm text-gray-500">
+                En 12 cuotas de S/ 224.91
+              </div>
+            </div>
+            <div class="mt-4 flex space-x-2">
+              <button
+                class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100 transition duration-300"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <button
+          class="px-6 py-3 border border-indigo-600 text-indigo-600 font-medium rounded-md hover:bg-indigo-50 transition duration-300"
+        >
+          Ver más celulares <i class="fas fa-chevron-down ml-2"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mid-range Phones -->
+    <div class="bg-gray-100 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Gama Media - Excelente Relación Calidad/Precio
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            Dispositivos con características premium a precios más accesibles.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Mid Phone 1 -->
+          <div
+            class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300"
+          >
+            <img
+              class="w-full h-56 object-contain p-4"
+              src="https://itzjp1802.github.io/ALJENI/images/operador2.png"
+              alt="Samsung Galaxy A54"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">Galaxy A54 5G</h3>
+              <div class="flex items-center mt-1">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-xs ml-2">(31)</span>
+              </div>
+              <div class="mt-4">
+                <span class="text-xl font-bold text-indigo-600">S/ 1,899</span>
+                <div class="mt-1 text-sm text-gray-500">
+                  En 12 cuotas de S/ 158.25
+                </div>
+              </div>
+              <button
+                class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+            </div>
+          </div>
+
+          <!-- Mid Phone 2 -->
+          <div
+            class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative"
+          >
+            <div class="deal-badge">OFERTA</div>
+            <img
+              class="w-full h-56 object-contain p-4"
+              src="https://itzjp1802.github.io/ALJENI/images/operador3.png"
+              alt="Xiaomi Redmi Note 12 Pro"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Redmi Note 12 Pro+
+              </h3>
+              <div class="flex items-center mt-1">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-xs ml-2">(27)</span>
+              </div>
+              <div class="mt-4">
+                <span class="text-xl font-bold text-indigo-600">S/ 1,599</span>
+                <span class="text-xs text-gray-500 line-through ml-1"
+                  >S/ 1,799</span
+                >
+                <div class="mt-1 text-sm text-gray-500">
+                  En 12 cuotas de S/ 133.25
+                </div>
+              </div>
+              <button
+                class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+            </div>
+          </div>
+
+          <!-- Mid Phone 3 -->
+          <div
+            class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300"
+          >
+            <img
+              class="w-full h-56 object-contain p-4"
+              src="https://itzjp1802.github.io/ALJENI/images/operador4.png"
+              alt="Motorola Edge 30"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Motorola Edge 30 Neo
+              </h3>
+              <div class="flex items-center mt-1">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-xs ml-2">(19)</span>
+              </div>
+              <div class="mt-4">
+                <span class="text-xl font-bold text-indigo-600">S/ 1,699</span>
+                <div class="mt-1 text-sm text-gray-500">
+                  En 12 cuotas de S/ 141.58
+                </div>
+              </div>
+              <button
+                class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+            </div>
+          </div>
+
+          <!-- Mid Phone 4 -->
+          <div
+            class="phone-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300"
+          >
+            <img
+              class="w-full h-56 object-contain p-4"
+              src="https://itzjp1802.github.io/ALJENI/images/operador1.png"
+              alt="Realme 10 Pro+"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Realme 10 Pro+
+              </h3>
+              <div class="flex items-center mt-1">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-xs ml-2">(14)</span>
+              </div>
+              <div class="mt-4">
+                <span class="text-xl font-bold text-indigo-600">S/ 1,499</span>
+                <div class="mt-1 text-sm text-gray-500">
+                  En 12 cuotas de S/ 124.91
+                </div>
+              </div>
+              <button
+                class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-300"
+              >
+                Comprar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accessories Section -->
+    <div id="accesorios" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Accesorios para tu Celular
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            Protege y potencia tu dispositivo con nuestros accesorios de
+            calidad.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Accessory 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg"
+          >
+            <img
+              class="w-full h-40 object-contain p-4"
+              src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Fundas"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-gray-900">
+                Fundas Protectoras
+              </h3>
+              <p class="mt-1 text-sm text-gray-500">Desde S/ 49.90</p>
+              <button
+                class="mt-3 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-1 px-3 rounded-md text-sm transition duration-300"
+              >
+                Ver opciones
+              </button>
+            </div>
+          </div>
+
+          <!-- Accessory 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg"
+          >
+            <img
+              class="w-full h-40 object-contain p-4"
+              src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Auriculares"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-gray-900">
+                Auriculares Inalámbricos
+              </h3>
+              <p class="mt-1 text-sm text-gray-500">Desde S/ 129.90</p>
+              <button
+                class="mt-3 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-1 px-3 rounded-md text-sm transition duration-300"
+              >
+                Ver opciones
+              </button>
+            </div>
+          </div>
+
+          <!-- Accessory 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg"
+          >
+            <img
+              class="w-full h-40 object-contain p-4"
+              src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Cargadores"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-gray-900">
+                Cargadores Rápidos
+              </h3>
+              <p class="mt-1 text-sm text-gray-500">Desde S/ 79.90</p>
+              <button
+                class="mt-3 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-1 px-3 rounded-md text-sm transition duration-300"
+              >
+                Ver opciones
+              </button>
+            </div>
+          </div>
+
+          <!-- Accessory 4 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg"
+          >
+            <img
+              class="w-full h-40 object-contain p-4"
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Power Banks"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-gray-900">Power Banks</h3>
+              <p class="mt-1 text-sm text-gray-500">Desde S/ 99.90</p>
+              <button
+                class="mt-3 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-1 px-3 rounded-md text-sm transition duration-300"
+              >
+                Ver opciones
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recharges Section -->
+    <div id="recargas" class="bg-gray-100 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Mantente Conectado
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            Recargas al instante y planes que se adaptan a tus necesidades.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="flex items-center mb-6">
+              <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                <i class="fas fa-bolt text-indigo-600 text-xl"></i>
+              </div>
+              <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                Recargas Electrónicas
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              Recarga tu saldo de forma rápida y segura con tu operador
+              favorito.
+            </p>
+            <div class="grid grid-cols-4 gap-4 mb-8">
+              <img
+                class="h-16 w-auto object-contain"
+                src="https://itzjp1802.github.io/ALJENI/images/operador1.png"
+                alt="Operador 1"
+              />
+              <img
+                class="h-16 w-auto object-contain"
+                src="https://itzjp1802.github.io/ALJENI/images/operador2.png"
+                alt="Operador 2"
+              />
+              <img
+                class="h-16 w-auto object-contain"
+                src="https://itzjp1802.github.io/ALJENI/images/operador3.png"
+                alt="Operador 3"
+              />
+              <img
+                class="h-16 w-auto object-contain"
+                src="https://itzjp1802.github.io/ALJENI/images/operador4.png"
+                alt="Operador 4"
+              />
+            </div>
+
+            <div class="mb-6">
+              <label
+                for="amount"
+                class="block text-sm font-medium text-gray-700 mb-2"
+                >Monto de recarga</label
+              >
+              <div class="grid grid-cols-3 gap-3">
+                <button
+                  class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  S/ 10
+                </button>
+                <button
+                  class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  S/ 20
+                </button>
+                <button
+                  class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  S/ 30
+                </button>
+                <button
+                  class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  S/ 50
+                </button>
+                <button
+                  class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  S/ 100
+                </button>
+                <input
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="Otro monto"
+                  class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700"
+                />
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label
+                for="phone"
+                class="block text-sm font-medium text-gray-700 mb-2"
+                >Número de celular</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+
+            <a
+              href="#"
+              class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full"
+            >
+              Recargar Ahora <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="flex items-center mb-6">
+              <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                <i class="fas fa-sim-card text-indigo-600 text-xl"></i>
+              </div>
+              <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                Planes Móviles
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              Elige el plan con los gigas y minutos que necesitas para navegar y
+              hablar sin límites.
+            </p>
+
+            <div class="space-y-4 mb-8">
+              <div
+                class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition duration-300"
+              >
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h4 class="font-medium text-gray-900">
+                      Plan Conectado Total
+                    </h4>
+                    <p class="text-sm text-gray-500">Ilimitado + 30GB</p>
+                  </div>
+                  <span class="text-lg font-bold text-indigo-600"
+                    >S/ 99/mes</span
+                  >
+                </div>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>Minutos ilimitados a todo operador</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>30GB de internet full velocidad</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>WhatsApp ilimitado</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition duration-300"
+              >
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h4 class="font-medium text-gray-900">Plan Full Datos</h4>
+                    <p class="text-sm text-gray-500">20GB + 1000 Min</p>
+                  </div>
+                  <span class="text-lg font-bold text-indigo-600"
+                    >S/ 79/mes</span
+                  >
+                </div>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>1000 minutos a todo operador</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>20GB de internet full velocidad</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>Redes sociales ilimitadas</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition duration-300"
+              >
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h4 class="font-medium text-gray-900">Plan Gamer Pro</h4>
+                    <p class="text-sm text-gray-500">50GB + Ilimitado</p>
+                  </div>
+                  <span class="text-lg font-bold text-indigo-600"
+                    >S/ 129/mes</span
+                  >
+                </div>
+                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>Minutos ilimitados a todo operador</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>50GB de internet full velocidad</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
+                    <span>Prioridad en red para gaming</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full"
+            >
+              Ver Todos los Planes <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promotions -->
+    <div id="ofertas" class="py-16 bg-indigo-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Promociones Exclusivas
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            Aprovecha nuestras ofertas especiales en equipos y planes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="md:flex h-full">
+              <div
+                class="md:w-1/3 bg-indigo-600 flex items-center justify-center p-6"
+              >
+                <i class="fas fa-percentage text-white text-6xl"></i>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div
+                  class="uppercase tracking-wide text-sm text-indigo-600 font-semibold"
+                >
+                  Oferta Limitada
+                </div>
+                <h3 class="mt-2 text-xl font-semibold text-gray-900">
+                  Hasta 30% de descuento en planes anuales
+                </h3>
+                <p class="mt-3 text-gray-600">
+                  Contrata cualquiera de nuestros planes por 12 meses y obtén un
+                  descuento especial. Además, llévate una recarga de S/ 50
+                  totalmente gratis.
+                </p>
+                <div class="mt-6">
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Ver Promoción <i class="fas fa-gift ml-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="md:flex h-full">
+              <div
+                class="md:w-1/3 bg-purple-600 flex items-center justify-center p-6"
+              >
+                <i class="fas fa-mobile-alt text-white text-6xl"></i>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div
+                  class="uppercase tracking-wide text-sm text-purple-600 font-semibold"
+                >
+                  Nuevos Equipos
+                </div>
+                <h3 class="mt-2 text-xl font-semibold text-gray-900">
+                  Llévate un Xiaomi 13T Pro con 15% de descuento
+                </h3>
+                <p class="mt-3 text-gray-600">
+                  Solo por esta semana, obtén el nuevo Xiaomi 13T Pro con un
+                  descuento exclusivo. Incluye funda protectora y vidrio
+                  templado de regalo.
+                </p>
+                <div class="mt-6">
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                  >
+                    Comprar Ahora <i class="fas fa-shopping-cart ml-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                  <i class="fas fa-sync-alt text-blue-600"></i>
+                </div>
+                <h3 class="ml-4 text-lg font-medium text-gray-900">
+                  Renovación de Equipo
+                </h3>
+              </div>
+              <p class="mt-2 text-gray-600">
+                Cambia tu celular antiguo por uno nuevo y obtén un descuento
+                especial.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-green-100 p-3 rounded-full">
+                  <i class="fas fa-users text-green-600"></i>
+                </div>
+                <h3 class="ml-4 text-lg font-medium text-gray-900">
+                  Plan Familiar
+                </h3>
+              </div>
+              <p class="mt-2 text-gray-600">
+                Hasta 4 líneas con descuento y datos compartidos para toda la
+                familia.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 bg-yellow-100 p-3 rounded-full">
+                  <i class="fas fa-gift text-yellow-600"></i>
+                </div>
+                <h3 class="ml-4 text-lg font-medium text-gray-900">
+                  Regalo por Compra
+                </h3>
+              </div>
+              <p class="mt-2 text-gray-600">
+                Por compras superiores a S/ 3,000 llévate un accesorio de
+                regalo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Lo que dicen nuestros clientes
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            Miles de clientes satisfechos confían en nuestros productos y
+            servicios.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="testimonial-card p-8 rounded-lg">
+            <div class="flex items-center mb-4">
+              <img
+                class="h-10 w-10 rounded-full"
+                src="https://randomuser.me/api/portraits/women/32.jpg"
+                alt="Cliente 1"
+              />
+              <div class="ml-4">
+                <h4 class="text-sm font-medium text-gray-900">
+                  María Rodríguez
+                </h4>
+                <div class="flex text-yellow-400 text-xs">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "Compré mi iPhone 16 Pro Max aquí y el servicio fue excelente. Me
+              ayudaron a transferir todos mis datos y me dieron una funda de
+              regalo. ¡Totalmente recomendado!"
+            </p>
+          </div>
+
+          <div class="testimonial-card p-8 rounded-lg">
+            <div class="flex items-center mb-4">
+              <img
+                class="h-10 w-10 rounded-full"
+                src="https://randomuser.me/api/portraits/men/45.jpg"
+                alt="Cliente 2"
+              />
+              <div class="ml-4">
+                <h4 class="text-sm font-medium text-gray-900">
+                  Carlos Gutiérrez
+                </h4>
+                <div class="flex text-yellow-400 text-xs">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "Las recargas son instantáneas y los precios son los mejores que
+              he encontrado. Además, el plan familiar que me ofrecieron ha sido
+              perfecto para mi hogar."
+            </p>
+          </div>
+
+          <div class="testimonial-card p-8 rounded-lg">
+            <div class="flex items-center mb-4">
+              <img
+                class="h-10 w-10 rounded-full"
+                src="https://randomuser.me/api/portraits/women/68.jpg"
+                alt="Cliente 3"
+              />
+              <div class="ml-4">
+                <h4 class="text-sm font-medium text-gray-900">Laura Méndez</h4>
+                <div class="flex text-yellow-400 text-xs">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "El Samsung Z Fold que compré aquí ha superado mis expectativas.
+              El equipo de ALJENI me asesoró perfectamente y resolvieron todas
+              mis dudas antes de la compra."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Preguntas Frecuentes
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            Resolvemos tus dudas más comunes sobre nuestros productos y
+            servicios.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Información importante
+              </h3>
+            </div>
+            <div class="divide-y divide-gray-200">
+              <div class="px-4 py-5 sm:p-6">
+                <h4 class="text-md font-medium text-gray-900">
+                  ¿Cómo realizo una recarga electrónica?
+                </h4>
+                <p class="mt-2 text-sm text-gray-600">
+                  Selecciona el monto que deseas recargar, ingresa el número de
+                  celular y realiza el pago. La recarga se aplicará de forma
+                  instantánea.
+                </p>
+              </div>
+              <div class="px-4 py-5 sm:p-6">
+                <h4 class="text-md font-medium text-gray-900">
+                  ¿Cuáles son los métodos de pago aceptados?
+                </h4>
+                <p class="mt-2 text-sm text-gray-600">
+                  Aceptamos tarjetas de crédito/débito (Visa, Mastercard),
+                  transferencias bancarias, Yape, Plin y efectivo en nuestras
+                  tiendas físicas.
+                </p>
+              </div>
+              <div class="px-4 py-5 sm:p-6">
+                <h4 class="text-md font-medium text-gray-900">
+                  ¿Ofrecen garantía en los equipos?
+                </h4>
+                <p class="mt-2 text-sm text-gray-600">
+                  Todos nuestros equipos nuevos incluyen garantía oficial del
+                  fabricante (12 meses para celulares). Los equipos
+                  reacondicionados tienen 6 meses de garantía.
+                </p>
+              </div>
+              <div class="px-4 py-5 sm:p-6">
+                <h4 class="text-md font-medium text-gray-900">
+                  ¿Puedo cambiar de plan móvil en cualquier momento?
+                </h4>
+                <p class="mt-2 text-sm text-gray-600">
+                  Sí, puedes cambiar a un plan superior en cualquier momento sin
+                  costo. Para planes inferiores, aplican condiciones según el
+                  tiempo restante de tu contrato actual.
+                </p>
+              </div>
+              <div class="px-4 py-5 sm:p-6">
+                <h4 class="text-md font-medium text-gray-900">
+                  ¿Hacen envíos a todo el país?
+                </h4>
+                <p class="mt-2 text-sm text-gray-600">
+                  Sí, realizamos envíos a todo el Perú. Los tiempos de entrega
+                  varían según la ubicación (1-3 días en Lima, 3-7 días a
+                  provincia). Los costos de envío se calculan al finalizar la
+                  compra.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contacto" class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Contáctanos
+          </h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            ¿Tienes alguna duda? Estamos aquí para ayudarte.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg text-center">
+              <div
+                class="mx-auto flex items-center justify-center h-12 w-12 rounded-md bg-indigo-100 text-indigo-600"
+              >
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3 class="mt-4 text-lg font-medium text-gray-900">Teléfono</h3>
+              <p class="mt-2 text-base text-gray-500">+51 987 654 321</p>
+              <p class="mt-1 text-sm text-gray-500">
+                Lunes a Sábado: 9am - 8pm
+              </p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg text-center">
+              <div
+                class="mx-auto flex items-center justify-center h-12 w-12 rounded-md bg-indigo-100 text-indigo-600"
+              >
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3 class="mt-4 text-lg font-medium text-gray-900">Email</h3>
+              <p class="mt-2 text-base text-gray-500">contacto@aljeni.com</p>
+              <p class="mt-1 text-sm text-gray-500">
+                Respuesta en menos de 24 horas
+              </p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg text-center">
+              <div
+                class="mx-auto flex items-center justify-center h-12 w-12 rounded-md bg-indigo-100 text-indigo-600"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3 class="mt-4 text-lg font-medium text-gray-900">Dirección</h3>
+              <p class="mt-2 text-base text-gray-500">
+                Av. Principal 123, Lima
+              </p>
+              <p class="mt-1 text-sm text-gray-500">
+                Tienda abierta de lunes a domingo
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="mt-12 bg-white shadow overflow-hidden sm:rounded-lg"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="bg-indigo-700 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-center md:justify-between">
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-bold text-white">
+              Suscríbete a nuestro boletín
+            </h3>
+            <p class="mt-2 text-indigo-100">
+              Recibe las últimas ofertas y novedades directamente en tu correo.
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0 md:w-1/2">
+            <form class="sm:flex">
+              <label for="email-address" class="sr-only"
+                >Correo electrónico</label
+              >
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-md"
+                placeholder="Ingresa tu correo"
+              />
+              <div
+                class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+              >
+                <button
+                  type="submit"
+                  class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Suscribirme
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">ALJENI</h3>
+            <p class="text-gray-300">
+              Tu conexión móvil al instante. Los mejores celulares, recargas
+              rápidas y planes a tu medida.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">
+              Enlaces Rápidos
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#celulares" class="text-gray-300 hover:text-white"
+                  >Celulares</a
+                >
+              </li>
+              <li>
+                <a href="#recargas" class="text-gray-300 hover:text-white"
+                  >Recargas</a
+                >
+              </li>
+              <li>
+                <a href="#planes" class="text-gray-300 hover:text-white"
+                  >Planes</a
+                >
+              </li>
+              <li>
+                <a href="#ofertas" class="text-gray-300 hover:text-white"
+                  >Ofertas</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white"
+                  >Términos y Condiciones</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white"
+                  >Política de Privacidad</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white"
+                  >Libro de Reclamaciones</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Síguenos</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-white"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400"
+        >
+          <p>© 2024 Comunicaciones ALJENI. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botón de WhatsApp flotante -->
+    <a
+      href="https://wa.me/51931878982?text=Buenas%20tardes%2C%20deseo%20saber%20m%C3%A1s%20sobre%20sus%20productos"
+      target="_blank"
+      class="floating-whatsapp bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300"
+    >
+      <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <script src="{{ url_for('static', path='/js/scripts.js') }}"></script>
+  </body>
+</html>
