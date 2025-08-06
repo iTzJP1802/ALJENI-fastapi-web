@@ -100,3 +100,18 @@ html {
         padding-left: 100px; /* Ajusta este valor si tu logo es muy ancho */
     }
 }
+
+/* --- Animación para la sección "Quienes Somos" --- */
+
+/* Estado inicial de la sección: invisible y ligeramente desplazada hacia abajo */
+#quienes-somos {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Estado final cuando es visible: totalmente opaca y en su posición original */
+#quienes-somos.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

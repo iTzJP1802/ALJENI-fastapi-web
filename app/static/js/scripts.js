@@ -26,4 +26,26 @@ document.addEventListener('DOMContentLoaded', function() {
             menuIcon.classList.add('fa-bars');
         });
     });
+
+    // --- Lógica para la animación de la sección "Quienes Somos" ---
+    const quienesSomosSection = document.querySelector('#quienes-somos');
+
+    if (quienesSomosSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Si la sección está entrando en la pantalla
+                if (entry.isIntersecting) {
+                    quienesSomosSection.classList.add('is-visible');
+                    // Dejamos de observar una vez que la animación se ha disparado
+                    observer.unobserve(quienesSomosSection);
+                }
+            });
+        }, {
+            // La animación se dispara cuando el 15% de la sección es visible
+            threshold: 0.15 
+        });
+
+        // Empezamos a observar la sección
+        observer.observe(quienesSomosSection);
+    }
 });
